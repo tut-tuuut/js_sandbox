@@ -1,0 +1,43 @@
+/* Page layout */
+#col_left {
+	display: table-cell;
+	width: 400px;
+	border-right: 1px solid #000;
+}
+#tables {
+	display: table-cell;
+}
+/* Page style */
+.table {
+	width: 200px;
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #ccc;
+	counter-increment: tables;
+	position: relative;
+	margin: 0 0.7em 0.7em;
+}
+.table::before {
+	display: block;
+	background: hotpink;
+	border-radius: 1em;
+	width: 2em;
+	height: 2em;
+	position: absolute;
+	left: -0.5em;
+	top: -0.5em;
+	line-height: 2em;
+	text-align: center;
+}
+#tables .table::before {
+	content: counter(tables);
+}
+.table > li {
+	list-style: none;
+	padding: 10px;
+	border: 1px solid #eee;
+	margin-bottom: 3px;
+}
+.table > li > b {
+	font-variant: small-caps;
+}
