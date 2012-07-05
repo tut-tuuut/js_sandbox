@@ -6,6 +6,13 @@ $(document).ready(function() {
 	if (localStorage.getItem('guests')) {
 		guestList = localStorage.getItem('guests').split(',');
 	}
+	var guestPool = [];
+	if (localStorage.guestPool) {
+		guestPool = localStorage.guestPool.split(',');
+	}
+
+	var view = {};
+	view.guestPool = $('#guestPool');
 	addButton.bind('click', function() {
 		var value = addTextarea.val();
 		if (value !== '') {
@@ -15,8 +22,10 @@ $(document).ready(function() {
 				var firstname = subarr.shift();
 				var lastname = subarr.join(' ');
 				guestList.push(firstname + ' <b>' + lastname + '</b>');
+				guestPool.push(guestList.length - 1);
 			}
 			saveGuestList();
+			updatePoolDisplay();
 			addTextarea.val('');
 		}
 	});
@@ -24,5 +33,19 @@ $(document).ready(function() {
 	function saveGuestList()
 	{
 		localStorage.setItem('guests', guestList);
+		localStorage.setItem('guestPool', guestPool);
+	}
+
+	function updatePoolDisplay()
+	{
+		for(var i = 0; i<guestPool.length; i++) {
+			var guestNumber = guestPool[i];
+			console.log(guestNumber);
+			var guestSelector = '#guest-' + guestNumber;
+			if (!view.guestPool.children(guestSelector).length) {
+				var viewGuest = $('<li id="guest-'+guestNumber+'">'+guestList[guestNumber]+'</li>');
+				view.guestPool.append(viewGuest);
+			}
+		}
 	}
 });
