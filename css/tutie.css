@@ -37,6 +37,7 @@
 	padding: 10px;
 	border: 1px solid #eee;
 	margin-bottom: 3px;
+	background: #fff;
 }
 .table > li > b {
 	font-variant: small-caps;

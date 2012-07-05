@@ -13,6 +13,14 @@ $(document).ready(function() {
 
 	var view = {};
 	view.guestPool = $('#guestPool');
+	var control = {};
+	control.dropGuest = function(event, ui) {
+		console.log('dropped');
+	}
+
+
+	updatePoolDisplay();
+
 	addButton.bind('click', function() {
 		var value = addTextarea.val();
 		if (value !== '') {
@@ -44,8 +52,11 @@ $(document).ready(function() {
 			var guestSelector = '#guest-' + guestNumber;
 			if (!view.guestPool.children(guestSelector).length) {
 				var viewGuest = $('<li id="guest-'+guestNumber+'">'+guestList[guestNumber]+'</li>');
+				viewGuest.draggable({snap: ".table", stack: '.table > li', revert: true});
 				view.guestPool.append(viewGuest);
 			}
 		}
 	}
+
+
 });
