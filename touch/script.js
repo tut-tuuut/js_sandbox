@@ -1,13 +1,13 @@
 var myfunctiononclick = function() {
-    alert('myfunctiononclick');
+    Element.show('showme');
 }
 
 $('observed').observe('click', function() {
-    alert('click');
+    Element.show('showme');
 });
 $('observed').observe('tap', function() {
-    alert('tap');
+    Element.show('showme');
 });
 $('observed').observe('touchdown', function() {
-    alert('touchdown');
+    Element.show('showme');
 });
