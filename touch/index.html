@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tests JS mobile avec prototype 1.6</title>
+        <meta charset="utf-8">
+        <style>
+            .button {
+                text-decoration: none;
+                color: #000;
+                border: 1px solid #999;
+                background: #ddd;
+                border-radius: .5em;
+                padding: 1em 2em;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#" class="button" id="observed">Lien observé par un .observe('des_trucs')</a>
+        <a href="#" class="button" id="onclick" onclick="myfunctiononclick()">Lien portant un onclick</a>
+        <script type="text/javascript" src="prototype.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
