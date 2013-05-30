@@ -2,18 +2,14 @@ var myfunctiononclick = function() {
     Element.show('showme');
 }
 
-$('observed').observe('click', function() {
+var observer = function(evt) {
+    console.log(evt);
+    console.log(this);
+    evt.stopPropagation();
+    evt.preventDefault();
     Element.show('showme');
-});
-$('observed').observe('tap', function() {
-    Element.show('showme');
-});
-$('observed').observe('touchdown', function() {
-    Element.show('showme');
-});
-$('obs_touchstart').observe('touchstart', function() {
-    Element.show('showme');
-});
-$('obs_touchend').observe('touchend', function() {
-    Element.show('showme');
-});
+    window.location = this.href;
+};
+$('observed').observe('click', observer);
+$('obs_touchstart').observe('touchstart', observer);
+$('obs_touchend').observe('touchend', observer);
