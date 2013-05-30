@@ -11,3 +11,9 @@ $('observed').observe('tap', function() {
 $('observed').observe('touchdown', function() {
     Element.show('showme');
 });
+$('obs_touchstart').observe('touchstart', function() {
+    Element.show('showme');
+});
+$('obs_touchend').observe('touchend', function() {
+    Element.show('showme');
+});

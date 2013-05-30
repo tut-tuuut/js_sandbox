@@ -13,12 +13,27 @@
                 padding: 1em 2em;
                 display: inline-block;
             }
+            #showme {
+                background: hotpink;
+                bottom: 0;
+                color: purple;
+                font-size: 4em;
+                left: 0;
+                padding: 1em 0;
+                position: fixed;
+                right: 0;
+                text-align: center;
+                top: 0;
+            }
         </style>
     </head>
     <body>
         <h1>Index 1</h1>
         <a href="index2.html" class="button" id="observed">Lien observé par un .observe('des_trucs')</a>
         <a href="index2.html" class="button" id="onclick" onclick="myfunctiononclick()">Lien portant un onclick</a>
+        <h1>Index 2 - observons les touch events</h1>
+        <a href="index.html" class="button" id="obs_touchstart">Observation du touchstart</a>
+        <a href="index.html" class="button" id="obs_touchend">Observation du touchend</a>
         <div id="showme" style="display: none;">
             Je suis là !
         </div>
